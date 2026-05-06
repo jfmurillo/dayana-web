@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavbarProps {
   onContactClick: () => void;
@@ -69,6 +70,8 @@ export default function Navbar({
           >
             <img src={`${BASE}flags/us.svg`} alt="" />
           </button>
+
+          <ThemeToggle />
 
           <button
             type="button"

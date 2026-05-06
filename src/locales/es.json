@@ -7,7 +7,9 @@
     "language": "Idioma",
     "menu": "Menú",
     "english": "Inglés",
-    "spanish": "Español"
+    "spanish": "Español",
+    "lightMode": "Cambiar a modo claro",
+    "darkMode": "Cambiar a modo oscuro"
   },
   "loader": {
     "title": "Dayana Media",
