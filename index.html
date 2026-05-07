@@ -17,6 +17,29 @@
     />
     <title>Flowtica</title>
     <script>
+      (function () {
+        document.addEventListener("contextmenu", function (e) {
+          e.preventDefault();
+        });
+        document.addEventListener("keydown", function (e) {
+          var blocked =
+            e.key === "F12" ||
+            (e.ctrlKey && e.key === "U") ||
+            (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C"));
+          if (blocked) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        });
+        var noop = function () {};
+        try {
+          ["log","warn","error","info","debug","table","dir"].forEach(function (m) {
+            console[m] = noop;
+          });
+        } catch (_) {}
+      })();
+    </script>
+    <script>
       // Companion to public/404.html — restore the original deep-link
       // path that 404.html encoded into a "?p=/path" query before the
       // SPA boots, so React Router sees the right URL.
