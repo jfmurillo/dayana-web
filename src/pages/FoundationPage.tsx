@@ -141,6 +141,8 @@ export default function FoundationPage() {
               </div>
             </div>
 
+            <div className="dual-panel__divider" aria-hidden="true" />
+
             <div className="dual-panel__col">
               <div className="dual-panel__icon" aria-hidden="true">
                 <TargetIcon />
