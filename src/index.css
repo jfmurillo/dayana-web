@@ -1319,19 +1319,27 @@ select {
   gap: 18px;
 }
 
+/* The "Let's talk growth!" left panel has its own typographic identity
+   (Roboto, slightly different weights) so it reads as a self-contained
+   contact-card the way the mockup is laid out. */
+.form-card__left {
+  font-family: "Roboto", var(--font-sans);
+}
+
 .form-card__kicker {
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  font-weight: 600;
+  font-family: "Roboto", var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  font-weight: 700;
   color: var(--brand);
   text-transform: uppercase;
 }
 
 .form-card__title {
-  font-family: var(--font-display);
-  font-size: clamp(26px, 3vw, 32px);
+  font-family: "Roboto", var(--font-sans);
+  font-size: clamp(26px, 3vw, 34px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--text);
   margin: 0;
 }
@@ -1346,16 +1354,17 @@ select {
 .form-card__checklist-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text);
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand);
 }
 
 .form-card__checklist-title svg {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   color: var(--brand);
+  stroke-width: 2;
 }
 
 .form-card__list {
@@ -1364,52 +1373,67 @@ select {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .form-card__list li {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  font-size: 13px;
+  gap: 12px;
+  font-size: 13.5px;
   line-height: 1.5;
-  color: var(--text-dim);
+  color: var(--text);
 }
 
 .form-card__list svg {
-  width: 16px;
-  height: 16px;
-  color: var(--success);
+  width: 22px;
+  height: 22px;
+  color: var(--brand);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .form-card__privacy {
-  background: var(--bg-elev);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-  border: 1px solid var(--line);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
-  font-size: 12.5px;
-  color: var(--text-dim);
-  line-height: 1.5;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 4px 0;
 }
 
 .form-card__privacy svg {
   width: 18px;
   height: 18px;
-  color: var(--brand);
+  color: var(--text-dim);
   flex-shrink: 0;
-  margin-top: 1px;
 }
 
-.form-card__privacy strong {
-  display: block;
-  color: var(--text);
-  font-size: 13px;
-  margin-bottom: 2px;
+.form-card__shield {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--brand-softer);
+  border: 1px solid var(--brand-soft);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.form-card__shield svg {
+  width: 28px;
+  height: 28px;
+  color: var(--brand);
+  flex-shrink: 0;
+  margin-top: 2px;
+  stroke-width: 1.6;
+}
+
+.form-card__shield p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-dim);
 }
 
 .form-card__right {

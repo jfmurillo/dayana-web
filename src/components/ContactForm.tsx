@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import emailjs from "@emailjs/browser";
 import {
-  CheckIcon,
+  TargetIcon,
   CheckCircleIcon,
   LockIcon,
+  ShieldIcon,
   ArrowUpRightIcon,
 } from "./Icons";
 
@@ -127,7 +128,7 @@ const ContactForm = forwardRef<HTMLElement>((_, ref) => {
 
             <div className="form-card__checklist">
               <div className="form-card__checklist-title">
-                <CheckIcon strokeWidth={2.2} />
+                <TargetIcon />
                 <span>{t("form.checklistTitle")}</span>
               </div>
               <ul className="form-card__list">
@@ -142,10 +143,12 @@ const ContactForm = forwardRef<HTMLElement>((_, ref) => {
 
             <div className="form-card__privacy">
               <LockIcon />
-              <div>
-                <strong>{t("form.privacy")}</strong>
-                {t("form.privacyNote")}
-              </div>
+              <span>{t("form.privacy")}</span>
+            </div>
+
+            <div className="form-card__shield">
+              <ShieldIcon />
+              <p>{t("form.privacyNote")}</p>
             </div>
           </aside>
 
