@@ -16,6 +16,39 @@
       rel="stylesheet"
     />
     <title>Flowtica — Buyer · Analyst · Growth</title>
+    <script>
+      // Companion to public/404.html — restore the original deep-link
+      // path that 404.html encoded into a "?p=/path" query before the
+      // SPA boots, so React Router sees the right URL.
+      (function () {
+        var l = window.location;
+        if (l.search) {
+          var q = {};
+          l.search
+            .slice(1)
+            .split("&")
+            .forEach(function (kv) {
+              var eq = kv.indexOf("=");
+              var k = kv.slice(0, eq);
+              var v = decodeURIComponent(kv.slice(eq + 1)).replace(
+                /~and~/g,
+                "&",
+              );
+              q[k] = (q[k] ? q[k] + "&" : "") + v;
+            });
+          if (q.p !== undefined) {
+            window.history.replaceState(
+              null,
+              null,
+              l.pathname.slice(0, -1) +
+                q.p +
+                (q.q ? "?" + q.q : "") +
+                l.hash,
+            );
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
