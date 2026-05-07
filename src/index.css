@@ -498,8 +498,8 @@ select {
 }
 
 .flag-btn {
-  width: 28px;
-  height: 20px;
+  width: 40px;
+  height: 26px;
   border-radius: 4px;
   overflow: hidden;
   display: inline-flex;
@@ -507,7 +507,7 @@ select {
   justify-content: center;
   outline: 1px solid var(--line);
   transition: outline-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .flag-btn:hover {
@@ -661,11 +661,10 @@ select {
    ======================================================================== */
 
 .hero {
-  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 140px 24px 80px;
+  padding: 140px 24px 24px;
   text-align: center;
 }
 
@@ -731,8 +730,8 @@ select {
   font-weight: 400;
 }
 
-/* Foundation hero variant */
-.hero--foundation { min-height: auto; padding: 140px 24px 96px; }
+/* Foundation hero variant — more breathing room and a real bottom margin */
+.hero--foundation { padding: 140px 24px 96px; }
 
 .hero__title--small {
   font-family: var(--font-display);
@@ -771,14 +770,24 @@ select {
   .svc-grid { grid-template-columns: 1fr; }
 }
 
+/* The 3 service cards sit directly under the hero — give them a tighter
+   top padding so they hug the headline like in the mockup. */
+.section--svcs {
+  padding-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .section--svcs { padding-top: 8px; }
+}
+
 .svc-card {
   background: transparent;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-  padding: 24px 16px;
+  gap: 16px;
+  padding: 16px 16px;
   border-radius: var(--radius-lg);
   transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -793,20 +802,21 @@ select {
 }
 
 .svc-card__icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  width: 92px;
+  height: 92px;
+  border-radius: 22px;
   background: var(--brand-soft);
   color: var(--brand);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 18px -10px rgba(37, 99, 235, 0.45);
+  box-shadow: 0 10px 22px -10px rgba(37, 99, 235, 0.45);
 }
 
 .svc-card__icon svg {
-  width: 28px;
-  height: 28px;
+  width: 52px;
+  height: 52px;
+  stroke-width: 1.7;
 }
 
 .svc-card__title {
@@ -1004,8 +1014,8 @@ select {
 }
 
 .compare-card__badge {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
@@ -1024,8 +1034,8 @@ select {
 }
 
 .compare-card__badge svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 .compare-card__title {
@@ -1538,8 +1548,8 @@ select {
 }
 
 .dual-panel__icon {
-  width: 56px;
-  height: 56px;
+  width: 88px;
+  height: 88px;
   border-radius: 999px;
   background: var(--bg-elev);
   border: 1px solid var(--line);
@@ -1551,7 +1561,7 @@ select {
   box-shadow: var(--shadow-sm);
 }
 
-.dual-panel__icon svg { width: 24px; height: 24px; }
+.dual-panel__icon svg { width: 44px; height: 44px; stroke-width: 1.7; }
 
 .dual-panel__title {
   font-family: var(--font-display);
@@ -1642,9 +1652,9 @@ select {
 }
 
 .talk-card__icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
   background: var(--brand-soft);
   color: var(--brand);
   display: flex;
@@ -1652,7 +1662,7 @@ select {
   justify-content: center;
 }
 
-.talk-card__icon svg { width: 32px; height: 32px; }
+.talk-card__icon svg { width: 50px; height: 50px; stroke-width: 1.7; }
 
 @media (max-width: 768px) {
   .talk-card__icon { margin: 0 auto; }

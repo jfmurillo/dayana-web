@@ -38,7 +38,11 @@ const ServicesSection = forwardRef<HTMLElement>((_, ref) => {
   ];
 
   return (
-    <section className="section section--tight" ref={ref} id="services">
+    <section
+      className="section section--tight section--svcs"
+      ref={ref}
+      id="services"
+    >
       <div className="container">
         <div className="svc-grid">
           {cards.map((c, i) => {
