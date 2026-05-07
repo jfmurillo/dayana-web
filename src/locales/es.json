@@ -21,7 +21,7 @@
   "hero": {
     "kicker": "MEDIA",
     "header": "MEDIA",
-    "roles": ["Compradora", "Analista", "Crecimiento*"]
+    "roles": ["Crecimiento"]
   },
   "services": {
     "card1": {

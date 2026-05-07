@@ -32,15 +32,6 @@ const HeroSection = forwardRef<HTMLElement>((_, ref) => {
   return (
     <section className="hero" ref={ref} id="hero">
       <div className="hero__inner">
-        <motion.span
-          className="hero__kicker"
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
-        >
-          {t("hero.kicker")}
-        </motion.span>
-
         <motion.h1
           className="hero__title"
           initial={{ opacity: 0, y: 20 }}

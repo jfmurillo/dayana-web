@@ -7,14 +7,15 @@ const STORAGE_KEY = "flowtica-theme";
 function getInitial(): Theme {
   if (typeof window === "undefined") return "light";
 
+  // Always default to the brand's light theme on first load. Dark is only
+  // shown when the user has explicitly toggled into it (we honor the
+  // localStorage choice on subsequent visits). We intentionally do NOT
+  // follow `prefers-color-scheme: dark` so phones in iOS dark mode still
+  // see the bright Flowtica look.
   const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
   if (stored === "dark" || stored === "light") return stored;
 
-  // Light is the new default. Only honor explicit OS dark preference.
-  const prefersDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return prefersDark ? "dark" : "light";
+  return "light";
 }
 
 export function useTheme() {
