@@ -1,16 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
-import ServicesSection from "./components/ServicesSection";
-import GrowthSection from "./components/GrowthSection";
-import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import CalendlyButton from "./components/CalendlyButton";
+import HomePage from "./pages/HomePage";
+import FoundationPage from "./pages/FoundationPage";
+import MissionPage from "./pages/MissionPage";
 
-export default function App() {
+function ScrollToTopOnRoute() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [pathname]);
+  return null;
+}
+
+function AppShell() {
   const [loading, setLoading] = useState(true);
 
   const heroRef = useRef<HTMLElement | null>(null);
@@ -18,24 +26,20 @@ export default function App() {
   const contactRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2200);
+    const t = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
-    if (!loading) {
-      document.body.style.overflow = "";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
+    document.body.style.overflow = loading ? "hidden" : "";
   }, [loading]);
 
   const scrollTo = (ref: React.RefObject<HTMLElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const scrollTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToContact = () => scrollTo(contactRef);
+  const scrollToServices = () => scrollTo(servicesRef);
 
   return (
     <>
@@ -44,23 +48,43 @@ export default function App() {
       </AnimatePresence>
 
       <Navbar
-        onContactClick={() => scrollTo(contactRef)}
-        onServicesClick={() => scrollTo(servicesRef)}
-        onHomeClick={scrollTop}
+        onContactClick={scrollToContact}
+        onServicesClick={scrollToServices}
       />
 
+      <ScrollToTopOnRoute />
+
       <main>
-        <HeroSection ref={heroRef} />
-        <ServicesSection
-          ref={servicesRef}
-          onCtaClick={() => scrollTo(contactRef)}
-        />
-        <GrowthSection />
-        <ContactForm ref={contactRef} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                ref={heroRef}
+                servicesRef={servicesRef}
+                contactRef={contactRef}
+                onScrollToContact={scrollToContact}
+              />
+            }
+          />
+          <Route path="/foundation" element={<FoundationPage />} />
+          <Route path="/mission" element={<MissionPage />} />
+        </Routes>
       </main>
 
-      <Footer onContactClick={() => scrollTo(contactRef)} />
+      <Footer
+        onContactClick={scrollToContact}
+        onServicesClick={scrollToServices}
+      />
       <CalendlyButton />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
+    </BrowserRouter>
   );
 }

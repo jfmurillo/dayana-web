@@ -1,52 +1,94 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { LinkedInIcon, InstagramIcon, MailIcon } from "./Icons";
 
 interface FooterProps {
   onContactClick: () => void;
+  onServicesClick: () => void;
 }
 
-type ModalKey = "foundation" | "mission" | "services" | null;
+type ModalKey = "comingSoon" | null;
 
-export default function Footer({ onContactClick }: FooterProps) {
+export default function Footer({ onContactClick, onServicesClick }: FooterProps) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [modal, setModal] = useState<ModalKey>(null);
 
   return (
     <footer className="footer">
-      <div className="footer__links">
-        <button
-          type="button"
-          className="footer__link"
-          onClick={() => setModal("foundation")}
-        >
-          {t("footer.foundation")}
-        </button>
-        <button
-          type="button"
-          className="footer__link"
-          onClick={onContactClick}
-        >
-          {t("footer.contact")}
-        </button>
-        <button
-          type="button"
-          className="footer__link"
-          onClick={() => setModal("mission")}
-        >
-          {t("footer.mission")}
-        </button>
-        <button
-          type="button"
-          className="footer__link"
-          onClick={() => setModal("services")}
-        >
-          {t("footer.services")}
-        </button>
+      <div className="footer__main">
+        <div className="footer__brand">
+          {t("brand")}
+          <span className="dot">.</span>
+        </div>
+
+        <nav className="footer__links" aria-label="Footer">
+          <button
+            type="button"
+            className="footer__link"
+            onClick={() => navigate("/foundation")}
+          >
+            {t("footer.foundation")}
+          </button>
+          <button
+            type="button"
+            className="footer__link"
+            onClick={onContactClick}
+          >
+            {t("footer.contact")}
+          </button>
+          <button
+            type="button"
+            className="footer__link"
+            onClick={() => navigate("/mission")}
+          >
+            {t("footer.mission")}
+          </button>
+          <button
+            type="button"
+            className="footer__link"
+            onClick={onServicesClick}
+          >
+            {t("footer.services")}
+          </button>
+        </nav>
+
+        <div className="footer__socials">
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social"
+            aria-label={t("footer.linkedin")}
+            title={t("footer.linkedin")}
+          >
+            <LinkedInIcon />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__social"
+            aria-label={t("footer.instagram")}
+            title={t("footer.instagram")}
+          >
+            <InstagramIcon />
+          </a>
+          <a
+            href="mailto:hello@flowtica.co"
+            className="footer__social"
+            aria-label={t("footer.email")}
+            title={t("footer.email")}
+          >
+            <MailIcon />
+          </a>
+        </div>
       </div>
 
-      <div className="footer__copy">
-        © {new Date().getFullYear()} Dayana Media · {t("footer.rights")}
+      <div className="footer__bar">
+        © {new Date().getFullYear()} {t("brand")}. {t("footer.rights")}
       </div>
 
       <AnimatePresence>
@@ -69,7 +111,7 @@ export default function Footer({ onContactClick }: FooterProps) {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h3 className="modal__title">{t(`footer.${modal}`)}</h3>
+              <h3 className="modal__title">{t("footer.comingSoon")}</h3>
               <p className="modal__body">{t("footer.comingSoonBody")}</p>
               <button
                 type="button"

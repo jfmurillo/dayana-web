@@ -10,7 +10,7 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className="icon-btn"
       onClick={toggle}
       aria-label={isDark ? t("nav.lightMode") : t("nav.darkMode")}
       title={isDark ? t("nav.lightMode") : t("nav.darkMode")}
@@ -19,7 +19,7 @@ export default function ThemeToggle() {
         {isDark ? (
           <motion.svg
             key="moon"
-            className="theme-toggle__icon"
+            className="icon-btn__icon"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export default function ThemeToggle() {
         ) : (
           <motion.svg
             key="sun"
-            className="theme-toggle__icon"
+            className="icon-btn__icon"
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

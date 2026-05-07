@@ -1,55 +1,118 @@
 {
+  "brand": "Flowtica",
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "foundation": "Foundation",
     "contact": "Contact",
-    "about": "About",
+    "mission": "Mission",
+    "services": "Services",
     "language": "Language",
     "menu": "Menu",
     "english": "English",
     "spanish": "Spanish",
     "lightMode": "Switch to light mode",
-    "darkMode": "Switch to dark mode"
+    "darkMode": "Switch to dark mode",
+    "cta": "Let's Talk Growth"
   },
   "loader": {
-    "title": "Dayana Media",
+    "title": "Flowtica",
     "subtitle": "Loading experience"
   },
   "hero": {
-    "header": "Media",
-    "roles": ["Buyer", "Trafficker", "Analyst", "Growth"]
+    "kicker": "MEDIA",
+    "header": "MEDIA",
+    "roles": ["Buyer", "Trafficker", "Analyst", "Growth*"]
   },
   "services": {
-    "flexible": "Flexible",
-    "affordable": "Affordable",
-    "crm": "CRM",
+    "card1": {
+      "title": "Consistent Client Flow",
+      "body": "Build a predictable system for acquiring new clients."
+    },
+    "card2": {
+      "title": "Optimized Ad Spend",
+      "body": "No wasted budget — every campaign is tracked and refined."
+    },
+    "card3": {
+      "title": "CRM",
+      "body": "Structured follow-ups and shuttle letters orchestrated for you."
+    },
     "ctaTitle": "Growth Strategy Call",
-    "ctaSubtitle": "No cost, no pressure",
+    "ctaSubtitle": "No cost, No pressure",
     "ctaButton": "Book a call",
+    "ctaBody": "We'll go over your current situation and identify opportunities to increase your client flow.",
     "info": "We'll go over your current situation and identify opportunities to increase your client flow.",
     "infoLabel": "More info"
   },
-  "growth": {
-    "title": "Let's talk growth",
-    "privacy": "All information is kept private and used only to understand your business needs",
-    "privacyLabel": "Privacy notice",
-    "intro": "Before submitting, make sure:",
-    "bullets": [
-      "You're the business owner or decision-maker",
-      "You're looking to get more clients or improve your ads",
-      "You're ready to invest in growing your business"
+  "comparison": {
+    "title": "Traditional Agency vs",
+    "titleBrand": "Flowtica",
+    "recommended": "RECOMMENDED",
+    "traditional": {
+      "title": "Traditional Agency",
+      "items": [
+        "They execute. You don't understand what's happening",
+        "Generic strategies reused across clients",
+        "No real understanding of your market",
+        "If they leave, you're left with nothing"
+      ]
+    },
+    "flowtica": {
+      "title": "Flowtica Approach",
+      "items": [
+        "We work with you, not just for you",
+        "You understand the system — and keep it",
+        "Strategy built around your business, not templates",
+        "Built on your data, your market, your growth"
+      ]
+    }
+  },
+  "howItWorks": {
+    "kicker": "HOW IT WORKS",
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Diagnosis & Audit",
+        "body": "We analyze your business, understand your ideal client, and identify what's holding your results back. We review your ads, your offer, and your sales process to find clear opportunities."
+      },
+      {
+        "title": "Strategy & Direction",
+        "body": "We define your client, your angles, and what content will perform. You get a structured plan with clear direction — built specifically for your business."
+      },
+      {
+        "title": "Production & Implementation",
+        "body": "We help you create the ads and copy. You provide the material — we handle the execution and setup inside Meta Ads."
+      },
+      {
+        "title": "Optimization & Scaling",
+        "body": "We review results with you, adjust what's not working, and scale what is. You learn how to read the numbers and build a system that grows consistently."
+      }
     ]
   },
   "form": {
-    "title": "Get in touch",
+    "kicker": "LET'S TALK",
+    "title": "Let's talk growth!",
     "subtitle": "Tell us about your business and goals",
-    "firstName": "First name",
-    "lastName": "Last name",
+    "checklistTitle": "Before submitting, make sure:",
+    "checklist": [
+      "You're the business owner or decision-maker",
+      "You're looking to get more clients or improve your ads",
+      "You're ready to invest in growing your business"
+    ],
+    "privacy": "This is for business owners serious about growth.",
+    "privacyNote": "All information is kept private and used only to understand your business needs.",
+    "firstName": "Name",
+    "firstNamePlaceholder": "Your name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Your last name",
     "email": "Email",
-    "social": "Social media handle",
-    "message": "Your message",
-    "messagePlaceholder": "Tell us a bit about your business and what you're looking for…",
-    "submit": "Send message",
+    "emailPlaceholder": "you@example.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/yourprofile",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+1 (555) 123-4567",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your business and your goals…",
+    "submit": "Send Message",
     "submitting": "Sending…",
     "success": "Message sent — we'll be in touch soon.",
     "error": "Something went wrong. Please try again or email us directly.",
@@ -62,11 +125,55 @@
     "mission": "Mission",
     "services": "Services",
     "rights": "All rights reserved.",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "email": "Email",
     "comingSoon": "Coming soon",
     "comingSoonBody": "This section isn't available yet. Check back soon.",
     "close": "Close"
   },
   "calendly": {
     "label": "Schedule a call"
+  },
+  "foundation": {
+    "kicker": "FOUNDATION",
+    "title1": "We're not your agency.",
+    "title2Pre": "We're your",
+    "title2Highlight": "starting point.",
+    "intro": "We step into your business, build the system, and make sure you understand it. Because a business owner who understands their own growth doesn't depend on anyone.",
+    "howWeWorkTitle": "How we work",
+    "steps": [
+      { "title": "Market Research", "body": "We analyze your market and define your ideal client." },
+      { "title": "Communication Structure", "body": "We define what to say, how to say it, and where it works best." },
+      { "title": "Content Creation", "body": "You record — we turn it into ready-to-use content." },
+      { "title": "Ad Implementation", "body": "We guide your campaigns step-by-step inside Meta Ads." },
+      { "title": "Optimization", "body": "We test, adjust, and improve during the first 30 days." },
+      { "title": "Direct Mentorship", "body": "We explain what we do and why it works — so you understand everything." }
+    ],
+    "aboutTeamTitle": "About the team",
+    "aboutTeam": [
+      "We're not an agency where you're just a number.",
+      "We're a focused team of specialists, working together to build a strategy tailored to your business — not a generic plan reused across clients."
+    ],
+    "ourFocusTitle": "Our Focus",
+    "ourFocus": "A complete client acquisition system through Meta Ads — combining strategy, creative, and execution to generate consistent, predictable results.",
+    "quote": "The biggest mistake isn't hiring an agency. It's doing it without understanding what your business actually needs.",
+    "quoteFooter": "Because if you don't know — no one will know better.",
+    "ctaTitle": "Let's talk growth",
+    "ctaSubtitle": "No cost. No pressure.",
+    "ctaBody": "Let's talk about your business and see how we can help you grow.",
+    "ctaButton": "Let's Talk Growth",
+    "ctaConfidential": "100% confidential. Your information is safe."
+  },
+  "mission": {
+    "kicker": "MISSION",
+    "title": "Helping owners build growth they truly understand.",
+    "intro": "Our mission is to give business owners the system, the clarity, and the confidence to grow without depending on anyone.",
+    "pillarsTitle": "What we stand for",
+    "pillars": [
+      { "title": "Clarity", "body": "Every decision is backed by data you can read." },
+      { "title": "Ownership", "body": "You leave the engagement owning the system, not renting it." },
+      { "title": "Compounding growth", "body": "We design systems that get better the longer they run." }
+    ]
   }
 }

@@ -1,54 +1,117 @@
 {
+  "brand": "Flowtica",
   "nav": {
     "home": "Inicio",
-    "services": "Servicios",
+    "foundation": "Fundación",
     "contact": "Contacto",
-    "about": "Sobre nosotros",
+    "mission": "Misión",
+    "services": "Servicios",
     "language": "Idioma",
     "menu": "Menú",
     "english": "Inglés",
     "spanish": "Español",
     "lightMode": "Cambiar a modo claro",
-    "darkMode": "Cambiar a modo oscuro"
+    "darkMode": "Cambiar a modo oscuro",
+    "cta": "Hablemos de crecimiento"
   },
   "loader": {
-    "title": "Dayana Media",
+    "title": "Flowtica",
     "subtitle": "Cargando experiencia"
   },
   "hero": {
-    "header": "Media",
-    "roles": ["Compradora", "Traficante", "Analista", "Crecimiento"]
+    "kicker": "MEDIA",
+    "header": "MEDIA",
+    "roles": ["Compradora", "Traficante", "Analista", "Crecimiento*"]
   },
   "services": {
-    "flexible": "Flexible",
-    "affordable": "Accesible",
-    "crm": "CRM",
+    "card1": {
+      "title": "Flujo constante de clientes",
+      "body": "Construimos un sistema predecible para conseguir clientes nuevos."
+    },
+    "card2": {
+      "title": "Inversión optimizada",
+      "body": "Sin presupuesto desperdiciado — cada campaña se mide y se afina."
+    },
+    "card3": {
+      "title": "CRM",
+      "body": "Seguimientos estructurados y mensajes orquestados por ti."
+    },
     "ctaTitle": "Llamada de Estrategia",
     "ctaSubtitle": "Sin costo, sin presión",
     "ctaButton": "Reservar llamada",
+    "ctaBody": "Revisaremos tu situación actual e identificaremos oportunidades para aumentar tu flujo de clientes.",
     "info": "Revisaremos tu situación actual e identificaremos oportunidades para aumentar el flujo de clientes.",
     "infoLabel": "Más información"
   },
-  "growth": {
-    "title": "Hablemos de crecimiento",
-    "privacy": "Toda la información se mantiene privada y se usa solo para entender las necesidades de tu negocio",
-    "privacyLabel": "Aviso de privacidad",
-    "intro": "Antes de enviar, asegúrate de que:",
-    "bullets": [
-      "Eres el dueño del negocio o el que toma decisiones",
-      "Buscas conseguir más clientes o mejorar tus anuncios",
-      "Estás listo para invertir en hacer crecer tu negocio"
+  "comparison": {
+    "title": "Agencia tradicional vs",
+    "titleBrand": "Flowtica",
+    "recommended": "RECOMENDADO",
+    "traditional": {
+      "title": "Agencia tradicional",
+      "items": [
+        "Ejecutan. Tú no entiendes lo que está pasando",
+        "Estrategias genéricas reutilizadas entre clientes",
+        "No entienden realmente tu mercado",
+        "Si se van, te quedas sin nada"
+      ]
+    },
+    "flowtica": {
+      "title": "Enfoque Flowtica",
+      "items": [
+        "Trabajamos contigo, no solo para ti",
+        "Entiendes el sistema — y te lo quedas",
+        "Estrategia construida sobre tu negocio, no plantillas",
+        "Construido sobre tus datos, tu mercado, tu crecimiento"
+      ]
+    }
+  },
+  "howItWorks": {
+    "kicker": "CÓMO FUNCIONA",
+    "title": "Así trabajamos",
+    "steps": [
+      {
+        "title": "Diagnóstico y auditoría",
+        "body": "Analizamos tu negocio, entendemos a tu cliente ideal e identificamos qué está frenando tus resultados. Revisamos tus anuncios, tu oferta y tu proceso de venta para encontrar oportunidades claras."
+      },
+      {
+        "title": "Estrategia y dirección",
+        "body": "Definimos a tu cliente, tus ángulos y qué contenido va a funcionar. Recibes un plan estructurado con dirección clara — hecho a la medida de tu negocio."
+      },
+      {
+        "title": "Producción e implementación",
+        "body": "Te ayudamos a crear los anuncios y los textos. Tú aportas el material — nosotros nos encargamos de la ejecución y el setup dentro de Meta Ads."
+      },
+      {
+        "title": "Optimización y escalado",
+        "body": "Revisamos los resultados contigo, ajustamos lo que no funciona y escalamos lo que sí. Aprendes a leer los números y construir un sistema que crece de forma constante."
+      }
     ]
   },
   "form": {
-    "title": "Hablemos",
+    "kicker": "HABLEMOS",
+    "title": "¡Hablemos de crecimiento!",
     "subtitle": "Cuéntanos sobre tu negocio y tus objetivos",
+    "checklistTitle": "Antes de enviar, asegúrate de que:",
+    "checklist": [
+      "Eres el dueño del negocio o el que toma decisiones",
+      "Buscas conseguir más clientes o mejorar tus anuncios",
+      "Estás listo para invertir en hacer crecer tu negocio"
+    ],
+    "privacy": "Esto es para dueños de negocio serios sobre crecer.",
+    "privacyNote": "Toda la información se mantiene privada y se usa solo para entender las necesidades de tu negocio.",
     "firstName": "Nombre",
+    "firstNamePlaceholder": "Tu nombre",
     "lastName": "Apellido",
-    "email": "Correo electrónico",
-    "social": "Red social",
-    "message": "Tu mensaje",
-    "messagePlaceholder": "Cuéntanos un poco sobre tu negocio y lo que buscas…",
+    "lastNamePlaceholder": "Tu apellido",
+    "email": "Correo",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "linkedin": "LinkedIn",
+    "linkedinPlaceholder": "linkedin.com/in/tuperfil",
+    "phone": "Número de teléfono",
+    "phonePlaceholder": "+1 (555) 123-4567",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntanos sobre tu negocio y tus objetivos…",
     "submit": "Enviar mensaje",
     "submitting": "Enviando…",
     "success": "Mensaje enviado — te contactaremos pronto.",
@@ -62,11 +125,55 @@
     "mission": "Misión",
     "services": "Servicios",
     "rights": "Todos los derechos reservados.",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "email": "Correo",
     "comingSoon": "Próximamente",
     "comingSoonBody": "Esta sección aún no está disponible. Vuelve pronto.",
     "close": "Cerrar"
   },
   "calendly": {
     "label": "Agendar una llamada"
+  },
+  "foundation": {
+    "kicker": "FUNDACIÓN",
+    "title1": "No somos tu agencia.",
+    "title2Pre": "Somos tu",
+    "title2Highlight": "punto de partida.",
+    "intro": "Entramos contigo, armamos el sistema y te enseñamos a manejarlo con criterio. Porque un empresario que entiende su propia marca no vuelve a depender de nadie.",
+    "howWeWorkTitle": "Así trabajamos",
+    "steps": [
+      { "title": "Investigación de mercado", "body": "Analizamos tu mercado y definimos tu cliente ideal." },
+      { "title": "Estructura de comunicación", "body": "Definimos qué decir, cómo decirlo y para qué canal." },
+      { "title": "Creación de contenido", "body": "Imágenes y videos listos para publicar. Tú solo grabas los clips." },
+      { "title": "Implementación de campañas", "body": "Implementamos tus campañas en Meta Ads paso a paso." },
+      { "title": "Revisión, ajuste y optimización", "body": "Optimizamos durante los primeros 30 días para mejorar resultados." },
+      { "title": "Mentoría directa", "body": "Te explicamos lo que hacemos y por qué funciona. Entiendes el sistema." }
+    ],
+    "aboutTeamTitle": "Sobre el equipo",
+    "aboutTeam": [
+      "No somos una agencia donde eres un número más.",
+      "Somos especialistas en cada área que trabajan de forma conjunta para diseñar una estrategia hecha a la medida de tu negocio."
+    ],
+    "ourFocusTitle": "Nuestro Foco",
+    "ourFocus": "Un sistema completo de adquisición de clientes con Meta Ads, combinando estrategia, creatividad y ejecución guiada para generar resultados consistentes.",
+    "quote": "El mayor error no es contratar una agencia. El mayor error es hacerlo sin entender primero qué necesita tu negocio.",
+    "quoteFooter": "Porque si no lo sabes tú, nadie lo va a saber mejor.",
+    "ctaTitle": "Hablemos de crecimiento",
+    "ctaSubtitle": "Sin costo, sin presión.",
+    "ctaBody": "Hablemos sobre tu negocio y veamos cómo podemos ayudarte a crecer.",
+    "ctaButton": "Hablemos de tu crecimiento",
+    "ctaConfidential": "100% confidencial. Tu información está segura."
+  },
+  "mission": {
+    "kicker": "MISIÓN",
+    "title": "Ayudar a dueños de negocio a construir crecimiento que realmente entiendan.",
+    "intro": "Nuestra misión es darte el sistema, la claridad y la confianza para crecer sin depender de nadie.",
+    "pillarsTitle": "Lo que defendemos",
+    "pillars": [
+      { "title": "Claridad", "body": "Cada decisión está respaldada por datos que puedes leer." },
+      { "title": "Propiedad", "body": "Te quedas con el sistema, no lo alquilas." },
+      { "title": "Crecimiento compuesto", "body": "Diseñamos sistemas que mejoran cuanto más tiempo corren." }
+    ]
   }
 }

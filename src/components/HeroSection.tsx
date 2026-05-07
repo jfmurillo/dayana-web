@@ -9,19 +9,19 @@ const containerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.18,
+      staggerChildren: 0.08,
       delayChildren: 0.4,
     },
   },
 };
 
 const wordVariants: Variants = {
-  hidden: { opacity: 0, y: 14, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 10, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.7, ease: EASE },
+    transition: { duration: 0.55, ease: EASE },
   },
 };
 
@@ -32,28 +32,23 @@ const HeroSection = forwardRef<HTMLElement>((_, ref) => {
   return (
     <section className="hero" ref={ref} id="hero">
       <div className="hero__inner">
-        <motion.div
-          className="hero__top-line"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.2 }}
-        />
+        <motion.span
+          className="hero__kicker"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
+        >
+          {t("hero.kicker")}
+        </motion.span>
 
         <motion.h1
           className="hero__title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: EASE }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.05 }}
         >
           {t("hero.header")}
         </motion.h1>
-
-        <motion.div
-          className="hero__bottom-line"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.2 }}
-        />
 
         <motion.div
           className="hero__roles"
@@ -62,32 +57,31 @@ const HeroSection = forwardRef<HTMLElement>((_, ref) => {
           animate="visible"
           key={i18n.resolvedLanguage}
         >
-          {roles.map((role, idx) => (
-            <span key={`${role}-${idx}`} style={{ display: "inline-flex", alignItems: "center", gap: 16 }}>
-              <motion.span variants={wordVariants} className="hero__role">
-                {role}
-              </motion.span>
-              {idx < roles.length - 1 && (
+          {roles.map((role, idx) => {
+            const isLast = idx === roles.length - 1;
+            return (
+              <span
+                key={`${role}-${idx}`}
+                style={{ display: "inline-flex", alignItems: "center", gap: 12 }}
+              >
                 <motion.span
                   variants={wordVariants}
-                  className="hero__role-sep"
-                  aria-hidden="true"
+                  className={`hero__role ${isLast ? "hero__role--accent" : ""}`}
                 >
-                  /
+                  {role}
                 </motion.span>
-              )}
-            </span>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="hero__scroll"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.8 }}
-        >
-          <span>scroll</span>
-          <span className="hero__scroll-dot" />
+                {!isLast && (
+                  <motion.span
+                    variants={wordVariants}
+                    className="hero__role-sep"
+                    aria-hidden="true"
+                  >
+                    /
+                  </motion.span>
+                )}
+              </span>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -1,23 +1,26 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { NavLink, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
+import { ArrowUpRightIcon, CloseIcon } from "./Icons";
+import { useCalendlyUrl } from "../hooks/useCalendly";
+
+const BASE = import.meta.env.BASE_URL;
 
 interface NavbarProps {
   onContactClick: () => void;
   onServicesClick: () => void;
-  onHomeClick: () => void;
 }
-
-const BASE = import.meta.env.BASE_URL;
 
 export default function Navbar({
   onContactClick,
   onServicesClick,
-  onHomeClick,
 }: NavbarProps) {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const calendlyUrl = useCalendlyUrl();
 
   const switchLang = (lng: "en" | "es") => {
     void i18n.changeLanguage(lng);
@@ -26,6 +29,16 @@ export default function Navbar({
   const handleNav = (action: () => void) => {
     setDrawerOpen(false);
     setTimeout(action, 200);
+  };
+
+  const goHomeAndScrollToContact = () => {
+    navigate("/");
+    setTimeout(() => onContactClick(), 60);
+  };
+
+  const goHomeAndScrollToServices = () => {
+    navigate("/");
+    setTimeout(() => onServicesClick(), 60);
   };
 
   const currentLang = i18n.resolvedLanguage ?? i18n.language;
@@ -38,16 +51,55 @@ export default function Navbar({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <button
-          type="button"
-          className="nav__brand"
-          onClick={onHomeClick}
-          aria-label="Go to top"
-        >
-          DAYANA <span>·</span> MEDIA
-        </button>
+        <NavLink to="/" className="nav__brand" aria-label={t("brand")}>
+          {t("brand")}
+          <span className="dot">.</span>
+        </NavLink>
+
+        <div className="nav__links">
+          <NavLink
+            to="/foundation"
+            className={({ isActive }) =>
+              `nav__link ${isActive ? "nav__link--active" : ""}`
+            }
+          >
+            {t("nav.foundation")}
+          </NavLink>
+          <button
+            type="button"
+            className="nav__link"
+            onClick={goHomeAndScrollToContact}
+          >
+            {t("nav.contact")}
+          </button>
+          <NavLink
+            to="/mission"
+            className={({ isActive }) =>
+              `nav__link ${isActive ? "nav__link--active" : ""}`
+            }
+          >
+            {t("nav.mission")}
+          </NavLink>
+          <button
+            type="button"
+            className="nav__link"
+            onClick={goHomeAndScrollToServices}
+          >
+            {t("nav.services")}
+          </button>
+        </div>
 
         <div className="nav__right">
+          <a
+            href={calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--primary"
+          >
+            {t("nav.cta")}
+            <ArrowUpRightIcon className="btn__arrow" width={16} height={16} />
+          </a>
+
           <button
             type="button"
             className={`flag-btn ${
@@ -75,7 +127,7 @@ export default function Navbar({
 
           <button
             type="button"
-            className={`burger ${drawerOpen ? "burger--open" : ""}`}
+            className={`icon-btn burger ${drawerOpen ? "burger--open" : ""}`}
             onClick={() => setDrawerOpen((s) => !s)}
             aria-label={t("nav.menu")}
             aria-expanded={drawerOpen}
@@ -115,7 +167,7 @@ export default function Navbar({
                   onClick={() => setDrawerOpen(false)}
                   aria-label={t("footer.close")}
                 >
-                  ×
+                  <CloseIcon width={16} height={16} />
                 </button>
               </div>
 
@@ -123,25 +175,50 @@ export default function Navbar({
                 <button
                   type="button"
                   className="drawer__link"
-                  onClick={() => handleNav(onHomeClick)}
+                  onClick={() => handleNav(() => navigate("/"))}
                 >
                   {t("nav.home")}
                 </button>
                 <button
                   type="button"
                   className="drawer__link"
-                  onClick={() => handleNav(onServicesClick)}
+                  onClick={() => handleNav(() => navigate("/foundation"))}
+                >
+                  {t("nav.foundation")}
+                </button>
+                <button
+                  type="button"
+                  className="drawer__link"
+                  onClick={() => handleNav(goHomeAndScrollToServices)}
                 >
                   {t("nav.services")}
                 </button>
                 <button
                   type="button"
                   className="drawer__link"
-                  onClick={() => handleNav(onContactClick)}
+                  onClick={() => handleNav(() => navigate("/mission"))}
+                >
+                  {t("nav.mission")}
+                </button>
+                <button
+                  type="button"
+                  className="drawer__link"
+                  onClick={() => handleNav(goHomeAndScrollToContact)}
                 >
                   {t("nav.contact")}
                 </button>
               </nav>
+
+              <a
+                href={calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--primary btn--full drawer__cta"
+                onClick={() => setDrawerOpen(false)}
+              >
+                {t("nav.cta")}
+                <ArrowUpRightIcon className="btn__arrow" width={16} height={16} />
+              </a>
             </motion.aside>
           </>
         )}
