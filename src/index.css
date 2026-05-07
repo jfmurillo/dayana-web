@@ -834,28 +834,28 @@ select {
   background: var(--bg-elev);
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  padding: 28px 32px;
+  padding: 36px 48px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 28px;
+  gap: 40px;
   box-shadow: var(--shadow-md);
+  text-align: center;
 }
 
 @media (max-width: 768px) {
   .growth-card {
     grid-template-columns: 1fr;
-    text-align: center;
-    gap: 16px;
-    padding: 24px;
+    gap: 20px;
+    padding: 28px 24px;
   }
 }
 
 .growth-card__icon,
 .growth-card__chart {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
   background: var(--brand-soft);
   color: var(--brand);
   display: flex;
@@ -866,48 +866,58 @@ select {
 
 .growth-card__icon svg,
 .growth-card__chart svg {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
+  stroke-width: 1.7;
 }
 
 @media (max-width: 768px) {
   .growth-card__icon,
-  .growth-card__chart { margin: 0 auto; }
+  .growth-card__chart {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+  .growth-card__icon svg,
+  .growth-card__chart svg {
+    width: 44px;
+    height: 44px;
+  }
 }
 
-.growth-card__body { padding: 0 8px; }
-
-@media (max-width: 768px) {
-  .growth-card__body { padding: 0; }
+.growth-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .growth-card__title {
   font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 28px);
+  font-size: clamp(24px, 2.6vw, 30px);
   font-weight: 700;
   letter-spacing: -0.01em;
-  margin: 0 0 4px;
+  margin: 0;
   color: var(--text);
 }
 
 .growth-card__sub {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--brand);
-  margin: 0 0 12px;
+  font-style: italic;
+  margin: 0;
 }
 
 .growth-card__rule {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 8px 0 12px;
-  color: var(--text-muted);
+  gap: 12px;
+  margin: 12px 0 8px;
+  color: var(--brand);
   justify-content: center;
-}
-
-@media (min-width: 769px) {
-  .growth-card__rule { justify-content: flex-start; }
+  width: 100%;
+  max-width: 320px;
 }
 
 .growth-card__rule::before,
@@ -915,14 +925,25 @@ select {
   content: "";
   height: 1px;
   background: var(--line-strong);
-  flex: 0 0 28px;
+  flex: 1 1 auto;
+}
+
+.growth-card__diamond {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--brand);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .growth-card__body-text {
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.55;
   color: var(--text-dim);
   margin: 0;
+  max-width: 420px;
 }
 
 /* ========================================================================
@@ -1175,14 +1196,20 @@ select {
   max-width: 220px;
 }
 
+/* Dotted path connector between steps (overlaid on the icon-row baseline) */
 .step__connector {
   position: absolute;
   top: 18px;
-  right: -50%;
-  width: 100%;
-  height: 1px;
-  border-top: 1px dashed var(--line-strong);
+  right: calc(-50% + 28px);
+  width: calc(100% - 56px);
+  height: 6px;
+  background-image: radial-gradient(circle, var(--brand) 1.4px, transparent 1.7px);
+  background-size: 10px 6px;
+  background-repeat: repeat-x;
+  background-position: left center;
+  opacity: 0.55;
   z-index: -1;
+  pointer-events: none;
 }
 
 .step:last-child .step__connector { display: none; }
@@ -1218,10 +1245,14 @@ select {
   top: -16px;
 }
 
+.steps--cards .step {
+  padding: 28px 18px 26px;
+}
+
 .steps--cards .step__icon {
-  width: 96px;
-  height: 96px;
-  margin-top: 24px;
+  width: 120px;
+  height: 120px;
+  margin-top: 28px;
   background: transparent;
   border: 0;
   box-shadow: none;
@@ -1229,9 +1260,20 @@ select {
 }
 
 .steps--cards .step__icon svg {
-  width: 60px;
-  height: 60px;
-  stroke-width: 1.6;
+  width: 76px;
+  height: 76px;
+  stroke-width: 1.5;
+}
+
+.steps--cards .step__title {
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.steps--cards .step__body {
+  font-size: 13.5px;
+  line-height: 1.55;
+  max-width: none;
 }
 
 /* ========================================================================

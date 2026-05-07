@@ -8,16 +8,15 @@ import ContactForm from "../components/ContactForm";
 interface HomePageProps {
   servicesRef: React.RefObject<HTMLElement | null>;
   contactRef: React.RefObject<HTMLElement | null>;
-  onScrollToContact: () => void;
 }
 
 const HomePage = forwardRef<HTMLElement, HomePageProps>(
-  ({ servicesRef, contactRef, onScrollToContact }, heroRef) => {
+  ({ servicesRef, contactRef }, heroRef) => {
     return (
       <>
         <div className="sky">
           <HeroSection ref={heroRef} />
-          <ServicesSection ref={servicesRef} onCtaClick={onScrollToContact} />
+          <ServicesSection ref={servicesRef} />
         </div>
 
         <ComparisonSection />

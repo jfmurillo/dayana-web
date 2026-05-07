@@ -5,10 +5,6 @@ import { useTranslation } from "react-i18next";
 import { MailIcon, DollarIcon, UsersIcon } from "./Icons";
 import GrowthCallCard from "./GrowthCallCard";
 
-interface ServicesSectionProps {
-  onCtaClick: () => void;
-}
-
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const cardVariants: Variants = {
@@ -20,60 +16,58 @@ const cardVariants: Variants = {
   }),
 };
 
-const ServicesSection = forwardRef<HTMLElement, ServicesSectionProps>(
-  ({ onCtaClick }, ref) => {
-    const { t } = useTranslation();
+const ServicesSection = forwardRef<HTMLElement>((_, ref) => {
+  const { t } = useTranslation();
 
-    const cards = [
-      {
-        Icon: MailIcon,
-        title: t("services.card1.title"),
-        body: t("services.card1.body"),
-      },
-      {
-        Icon: DollarIcon,
-        title: t("services.card2.title"),
-        body: t("services.card2.body"),
-      },
-      {
-        Icon: UsersIcon,
-        title: t("services.card3.title"),
-        body: t("services.card3.body"),
-      },
-    ];
+  const cards = [
+    {
+      Icon: MailIcon,
+      title: t("services.card1.title"),
+      body: t("services.card1.body"),
+    },
+    {
+      Icon: DollarIcon,
+      title: t("services.card2.title"),
+      body: t("services.card2.body"),
+    },
+    {
+      Icon: UsersIcon,
+      title: t("services.card3.title"),
+      body: t("services.card3.body"),
+    },
+  ];
 
-    return (
-      <section className="section section--tight" ref={ref} id="services">
-        <div className="container">
-          <div className="svc-grid">
-            {cards.map((c, i) => {
-              const Icon = c.Icon;
-              return (
-                <motion.div
-                  key={c.title}
-                  className="svc-card"
-                  custom={i}
-                  variants={cardVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  <div className="svc-card__icon" aria-hidden="true">
-                    <Icon />
-                  </div>
-                  <h3 className="svc-card__title">{c.title}</h3>
-                  <p className="svc-card__body">{c.body}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <GrowthCallCard onCtaClick={onCtaClick} />
+  return (
+    <section className="section section--tight" ref={ref} id="services">
+      <div className="container">
+        <div className="svc-grid">
+          {cards.map((c, i) => {
+            const Icon = c.Icon;
+            return (
+              <motion.div
+                key={c.title}
+                className="svc-card"
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <div className="svc-card__icon" aria-hidden="true">
+                  <Icon />
+                </div>
+                <h3 className="svc-card__title">{c.title}</h3>
+                <p className="svc-card__body">{c.body}</p>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
-    );
-  },
-);
+
+        <GrowthCallCard />
+      </div>
+    </section>
+  );
+});
 
 ServicesSection.displayName = "ServicesSection";
 

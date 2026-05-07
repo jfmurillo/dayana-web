@@ -120,7 +120,7 @@ export default function Navbar({
             aria-label={t("nav.english")}
             title={t("nav.english")}
           >
-            <img src={`${BASE}flags/us.svg`} alt="" />
+            <img src={`${BASE}flags/gb.svg`} alt="" />
           </button>
 
           <ThemeToggle />

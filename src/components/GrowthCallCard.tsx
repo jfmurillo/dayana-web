@@ -1,18 +1,11 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { CalendarIcon, ChartIcon, ArrowUpRightIcon } from "./Icons";
-import { useCalendlyUrl } from "../hooks/useCalendly";
-
-interface GrowthCallCardProps {
-  /** Optional fallback handler if Calendly is not used. */
-  onCtaClick?: () => void;
-}
+import { CalendarIcon, ChartIcon } from "./Icons";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function GrowthCallCard({ onCtaClick }: GrowthCallCardProps) {
+export default function GrowthCallCard() {
   const { t } = useTranslation();
-  const calendlyUrl = useCalendlyUrl();
 
   return (
     <motion.div
@@ -26,26 +19,13 @@ export default function GrowthCallCard({ onCtaClick }: GrowthCallCardProps) {
         <CalendarIcon />
       </div>
 
-      <div className="growth-card__body" style={{ textAlign: "center" }}>
+      <div className="growth-card__body">
         <h3 className="growth-card__title">{t("services.ctaTitle")}</h3>
         <p className="growth-card__sub">{t("services.ctaSubtitle")}</p>
-        <div className="growth-card__rule">
-          <span aria-hidden="true">◇</span>
+        <div className="growth-card__rule" aria-hidden="true">
+          <span className="growth-card__diamond" />
         </div>
         <p className="growth-card__body-text">{t("services.ctaBody")}</p>
-
-        <div style={{ marginTop: 16 }}>
-          <a
-            href={calendlyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn--primary"
-            onClick={onCtaClick}
-          >
-            {t("services.ctaButton")}
-            <ArrowUpRightIcon className="btn__arrow" width={16} height={16} />
-          </a>
-        </div>
       </div>
 
       <div className="growth-card__chart" aria-hidden="true">

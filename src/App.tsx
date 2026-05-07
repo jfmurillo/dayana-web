@@ -63,7 +63,6 @@ function AppShell() {
                 ref={heroRef}
                 servicesRef={servicesRef}
                 contactRef={contactRef}
-                onScrollToContact={scrollToContact}
               />
             }
           />
