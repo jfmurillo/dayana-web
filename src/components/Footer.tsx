@@ -17,6 +17,16 @@ export default function Footer({ onContactClick, onServicesClick }: FooterProps)
   const navigate = useNavigate();
   const [modal, setModal] = useState<ModalKey>(null);
 
+  const goHomeAndScrollToContact = () => {
+    navigate("/");
+    setTimeout(() => onContactClick(), 60);
+  };
+
+  const goHomeAndScrollToServices = () => {
+    navigate("/");
+    setTimeout(() => onServicesClick(), 60);
+  };
+
   return (
     <footer className="footer">
       <div className="footer__main">
@@ -36,7 +46,7 @@ export default function Footer({ onContactClick, onServicesClick }: FooterProps)
           <button
             type="button"
             className="footer__link"
-            onClick={onContactClick}
+            onClick={goHomeAndScrollToContact}
           >
             {t("footer.contact")}
           </button>
@@ -50,7 +60,7 @@ export default function Footer({ onContactClick, onServicesClick }: FooterProps)
           <button
             type="button"
             className="footer__link"
-            onClick={onServicesClick}
+            onClick={goHomeAndScrollToServices}
           >
             {t("footer.services")}
           </button>
