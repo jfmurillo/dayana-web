@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Typewriter } from "./Typewriter";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -59,7 +60,19 @@ const HeroSection = forwardRef<HTMLElement>((_, ref) => {
                   variants={wordVariants}
                   className={`hero__role ${isLast ? "hero__role--accent" : ""}`}
                 >
-                  {role}
+                  {isLast ? (
+                    <Typewriter
+                      text={role}
+                      speed={80}
+                      initialDelay={600}
+                      loop={false}
+                      showCursor={true}
+                      cursorChar="|"
+                      cursorClassName=""
+                    />
+                  ) : (
+                    role
+                  )}
                 </motion.span>
                 {!isLast && (
                   <motion.span
